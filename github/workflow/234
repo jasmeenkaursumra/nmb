@@ -1,0 +1,19 @@
+name: check readme 
+on:
+ puch:
+   branches:
+   -main 
+   -git-branch
+jobs:
+check-readme:
+ steps: 
+ -name: checkout repository 
+ uses: actions/checkout@v4
+ -name: check README file
+ run:
+ if[ -f README.md ] ; then 
+  echo "readme.md exists" 
+  else 
+  echo"README.md not found" 
+  exit 1 
+  fi 
